@@ -44,17 +44,23 @@ class _Home_ScreenState extends State<Home_Screen> {
         SizedBox(width: 20),
       ]),
       backgroundColor: uicolor.bgblueColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Notes',
-            style: TextStyle(
-                fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Notes',
+                style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10),
+              NotesListView()
+            ],
           ),
-          SizedBox(height: 10),
-          NotesListView()
-        ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.white,
@@ -267,7 +273,7 @@ class _NotesListViewState extends State<NotesListView> {
                             onPressed: () {
                               // noteEditValue = edit_dialogbox;
                               // noteEditbt = true;
-                              editedNoteText = NotesData[index]['note'];
+                              editedNoteText = EditnotesController.text;
                               // NotesData[index]['note'] = editedNoteText;
                               // noteEditValue = NotesData[index]['note'];
                               // _Home_ScreenState().bottom_sheet(context);
